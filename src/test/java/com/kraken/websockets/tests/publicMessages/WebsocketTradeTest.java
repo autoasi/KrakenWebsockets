@@ -10,9 +10,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Validate trade payload schema")
     public void validateTradePayloadSchemaTest(){
+        socketData.countDown = 3;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
@@ -20,9 +21,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Validate channel name is trade")
     public void validateChannelNameIsTradeTest(){
+        socketData.countDown = 3;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
@@ -30,9 +32,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Validate asset pair is XBT/EUR")
     public void validateAssetPairTest(){
+        socketData.countDown = 3;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
@@ -40,9 +43,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Check triggering order side is either buy or sell")
     public void checkTriggerOrderSideTest(){
+        socketData.countDown = 3;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
@@ -50,9 +54,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Check triggering order type is either market or limit")
     public void checkTriggerOrderTypeTest(){
+        socketData.countDown = 3;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
@@ -60,9 +65,10 @@ public class WebsocketTradeTest extends BaseTest {
 
     @Test(description = "Ensure invalid currency pair returns error message")
     public void ensureInvalidCurrencyPairReturnsErrorMessageTest(){
+        socketData.countDown = 2;
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_INVALID_CURRENCY;
-        //  SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        //  System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
+        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
         /*
             Add test logic
          */
