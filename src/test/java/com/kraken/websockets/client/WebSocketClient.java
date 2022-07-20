@@ -26,7 +26,8 @@ public class WebSocketClient implements WebSocket.Listener {
     public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         System.out.println(dtf.format(LocalDateTime.now()) + ": " + data);
-        this.data.returnedMessage = data.toString();
+        this.data.returnedMessage = this.data.returnedMessage + "### " + data.toString();
+        this.data.messagesList.add(data.toString());
         latch.countDown();
         return WebSocket.Listener.super.onText(webSocket, data, false);
     }

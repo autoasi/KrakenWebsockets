@@ -19,7 +19,7 @@ public class WebSocketFactory {
 
     public static SocketData OpenAndStreamWebSocketSubscription(SocketData data) {
         try {
-            CountDownLatch latch = new CountDownLatch(3);
+            CountDownLatch latch = new CountDownLatch(data.countDown);
             WebSocket ws = HttpClient
                     .newHttpClient()
                     .newWebSocketBuilder()
