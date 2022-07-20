@@ -10,7 +10,6 @@ public class SocketData {
     public String subscriptionMessage;
     public String returnedMessage;
     public int timeOut;
-    //public int statusCode;
-    //public Map<String,String> requestHeaders=new HashMap<>();
-    //public List<String> messageList=new ArrayList<>();
+    public int statusCode;
+    public List<String> messagesList=new ArrayList<>();
 }

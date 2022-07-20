@@ -1,37 +1,15 @@
-package com.kraken.websockets.tests;
+package com.kraken.websockets.tests.publicMessages;
 
 import com.kraken.websockets.base.BaseTest;
-import com.kraken.websockets.factory.WebSocketFactory;
 import com.kraken.websockets.client.SocketData;
 import com.kraken.websockets.constants.PublicMessages;
+import com.kraken.websockets.factory.WebSocketFactory;
 import org.testng.annotations.Test;
 
-public class PublicWebSocketTest extends BaseTest {
+public class WebsocketSpreadTest extends BaseTest {
 
-
-    @Test(description = "Add description")
-    public void tradeTest(){
-
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TRADE_XBT_EUR;
-        SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
-        /*
-            Add test logic
-         */
-    }
-
-    @Test(description = "Add description")
-    public void OHLCTest(){
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR;
-        SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" +responseContext.returnedMessage);
-        /*
-            Add test logic
-         */
-    }
-
-    @Test(description = "Add test description")
-    public void spreadTest(){
+    @Test(description = "Validate spread payload schema")
+    public void validateSpreadPayloadSchemaTest(){
         socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR_ETH_USD;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
         System.out.println("RESULT>>>" +responseContext.returnedMessage);
@@ -40,9 +18,9 @@ public class PublicWebSocketTest extends BaseTest {
          */
     }
 
-    @Test(description = "Add test description")
-    public void tickerTest(){
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+    @Test(description = "Check channel name is spread")
+    public void checkChannelNameIsSpreadTest(){
+        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR_ETH_USD;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
         System.out.println("RESULT>>>" +responseContext.returnedMessage);
         /*
@@ -50,9 +28,19 @@ public class PublicWebSocketTest extends BaseTest {
          */
     }
 
-    @Test(description = "Add test description")
-    public void bookTest(){
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+    @Test(description = "Check spread asset pair is XBT/EUR")
+    public void checkSpreadAssetPairTest(){
+        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR;
+        SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
+        System.out.println("RESULT>>>" +responseContext.returnedMessage);
+        /*
+            Add test logic
+         */
+    }
+
+    @Test(description = "Check two asset pairs return two messages")
+    public void checkTwoAssetPairsReturnTwoMessagesTest(){
+        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR_ETH_USD;
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
         System.out.println("RESULT>>>" +responseContext.returnedMessage);
         /*

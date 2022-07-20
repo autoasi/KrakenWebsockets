@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="WebSocketKraken" verbose="1" >
-    <test name="PublicWebSocketTest" >
+<suite name="Kraken public WebSockets suite" verbose="1" >
+    <test name="WebSocket Book Test" >
         <classes>
-            <class name="com.kraken.websockets.tests.PublicWebSocketTest" />
+            <class name="com.kraken.websockets.tests.publicMessages.WebsocketBookTest" />
+        </classes>
+    </test>
+    <test name="WebSocket OHLC Test" >
+        <classes>
+            <class name="com.kraken.websockets.tests.publicMessages.WebSocketOHLCTest" />
+        </classes>
+    </test>
+    <test name="WebSocket Spread Test" >
+        <classes>
+            <class name="com.kraken.websockets.tests.publicMessages.WebsocketSpreadTest" />
+        </classes>
+    </test>
+    <test name="WebSocket Ticker Test" >
+        <classes>
+            <class name="com.kraken.websockets.tests.publicMessages.WebsocketTickerTest" />
+        </classes>
+    </test>
+    <test name="WebSocket Trade Test" >
+        <classes>
+            <class name="com.kraken.websockets.tests.publicMessages.WebsocketTradeTest" />
         </classes>
     </test>
 </suite>
