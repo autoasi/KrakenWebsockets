@@ -19,13 +19,13 @@ public class WebSocketFactory {
 
     public static SocketData OpenAndStreamWebSocketSubscription(SocketData data) {
         try {
-            CountDownLatch latch = new CountDownLatch(data.countDown);
+            CountDownLatch latch = new CountDownLatch(data.getCountDown());
             WebSocket ws = HttpClient
                     .newHttpClient()
                     .newWebSocketBuilder()
-                    .buildAsync(URI.create(data.URI), new WebSocketClient(latch,data))
+                    .buildAsync(URI.create(data.getURI()), new WebSocketClient(latch,data))
                     .join();
-            ws.sendText(data.subscriptionMessage, true);
+            ws.sendText(data.getSubscriptionMessage(), true);
             latch.await();
 
         } catch (Exception e) {

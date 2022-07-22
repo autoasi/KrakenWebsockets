@@ -19,7 +19,8 @@ Execution surefire built in report can be found here:
 
 ## Future Improvements
 
-* Complete testcases implementation 
-* Enable parallel execution
+* Testcases implementation 
+* Dockerfile
+* Parallel execution (Multithreading)
 * Allure report
 

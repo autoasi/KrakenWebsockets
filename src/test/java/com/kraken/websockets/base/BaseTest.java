@@ -11,8 +11,8 @@ public class BaseTest {
     @BeforeTest
     public void createSocketData(){
         socketData = new SocketData();
-        socketData.URI = Config.WEBSOCKET_URI;
-        socketData.timeOut=5;
+        socketData.setURI(Config.WEBSOCKET_URI);
+        socketData.setTimeOut(5);
     }
 
     @AfterTest

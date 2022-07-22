@@ -10,10 +10,10 @@ public class WebSocketOHLCTest extends BaseTest {
 
     @Test(description = "Validate OHLC payload schema")
     public void validateOHLCPayloadSchemaTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -21,10 +21,10 @@ public class WebSocketOHLCTest extends BaseTest {
 
     @Test(description = "Check high price is greater than low price")
     public void CheckHighPriceIsGreaterThanLowPriceTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -32,10 +32,10 @@ public class WebSocketOHLCTest extends BaseTest {
 
     @Test(description = "Check epoch interval duration is correct")
     public void checkEpochIntervalDurationTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_OHLC_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -43,10 +43,10 @@ public class WebSocketOHLCTest extends BaseTest {
 
     @Test(description = "Ensure invalid currency pair returns error message")
     public void ensureInvalidCurrencyPairReturnsErrorMessageTest(){
-        socketData.countDown = 2;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_OHLC_INVALID_CURRENCY;
+        socketData.setCountDown(2);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_OHLC_INVALID_CURRENCY);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */

@@ -18,7 +18,7 @@ public class WebSocketClient implements WebSocket.Listener {
     @Override
     public void onOpen(WebSocket webSocket) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        System.out.println(dtf.format(LocalDateTime.now()) + ": Connected to WebSocket server: " + this.data.URI);
+        System.out.println(dtf.format(LocalDateTime.now()) + ": Connected to WebSocket server: " + this.data.getURI());
         WebSocket.Listener.super.onOpen(webSocket);
     }
 
@@ -26,8 +26,8 @@ public class WebSocketClient implements WebSocket.Listener {
     public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         System.out.println(dtf.format(LocalDateTime.now()) + ": " + data);
-        this.data.returnedMessage = this.data.returnedMessage + "### " + data.toString();
-        this.data.messagesList.add(data.toString());
+        this.data.setReturnedMessage(this.data.getReturnedMessage() + "### " + data.toString());
+        this.data.getMessagesList().add(data.toString());
         latch.countDown();
         return WebSocket.Listener.super.onText(webSocket, data, false);
     }
@@ -41,7 +41,7 @@ public class WebSocketClient implements WebSocket.Listener {
     @Override
     public CompletionStage<?> onClose(WebSocket webSocket, int code, String reason) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        System.out.println(dtf.format(LocalDateTime.now()) + ": Disconnected from websocket server: " + this.data.URI);
+        System.out.println(dtf.format(LocalDateTime.now()) + ": Disconnected from websocket server: " + this.data.getURI());
         return WebSocket.Listener.super.onClose(webSocket, code, reason);
     }
 

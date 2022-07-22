@@ -10,10 +10,10 @@ public class WebsocketSpreadTest extends BaseTest {
 
     @Test(description = "Validate spread payload schema")
     public void validateSpreadPayloadSchemaTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -21,10 +21,10 @@ public class WebsocketSpreadTest extends BaseTest {
 
     @Test(description = "Check channel name is spread")
     public void checkChannelNameIsSpreadTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -32,10 +32,10 @@ public class WebsocketSpreadTest extends BaseTest {
 
     @Test(description = "Check spread asset pair is XBT/EUR")
     public void checkSpreadAssetPairTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -43,10 +43,10 @@ public class WebsocketSpreadTest extends BaseTest {
 
     @Test(description = "Check two asset pairs return two messages")
     public void checkTwoAssetPairsReturnTwoMessagesTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR_ETH_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_SPREAD_XBT_EUR_ETH_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */

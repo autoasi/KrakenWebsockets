@@ -10,10 +10,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Validate ticker payload schema")
     public void validateTickerPayloadSchemaTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_BTC_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -21,10 +21,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Check channel name is ticker")
     public void checkChannelNameIsTickerTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_BTC_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -32,10 +32,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Check ticker asset pair is BTC/USD")
     public void checkTickerAssetPairTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_BTC_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -43,10 +43,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Check high value today is greater than low value today")
     public void checkHighValueTodayIsGreaterThanLowValueTodayTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_BTC_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -54,10 +54,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Check high value at last 24 hrs is greater than low value at last 24 hrs")
     public void checkValueAtLast24HoursIsGreaterThanLowValueAtLast24HoursTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_BTC_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_BTC_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -65,10 +65,10 @@ public class WebsocketTickerTest extends BaseTest {
 
     @Test(description = "Ensure invalid currency pair returns error message")
     public void ensureInvalidCurrencyPairReturnsErrorMessageTest(){
-        socketData.countDown = 2;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_TICKER_INVALID_CURRENCY;
+        socketData.setCountDown(2);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_TICKER_INVALID_CURRENCY);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */

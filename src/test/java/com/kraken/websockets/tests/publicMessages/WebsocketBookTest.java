@@ -10,10 +10,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Validate book payload schema")
     public void validateBookPayloadSchemaTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_XBT_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -21,10 +21,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Check number of trades is equal to book depth")
     public void checkNumberOfTradesEqualToBookDepthTest(){
-        socketData.countDown = 4;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+        socketData.setCountDown(4);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_XBT_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -32,10 +32,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Validate asset pair is XBT/USD")
     public void validateAssetPairTest(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_XBT_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -43,10 +43,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Check best ask prices are in ascending order")
     public void CheckBestAskPricesAreInAscendingOrder(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_XBT_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -54,10 +54,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Check best bid prices are in descending order")
     public void CheckBestBitPricesAreInDescendingOrder(){
-        socketData.countDown = 3;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_XBT_USD;
+        socketData.setCountDown(3);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_XBT_USD);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
@@ -65,10 +65,10 @@ public class WebsocketBookTest extends BaseTest {
 
     @Test(description = "Ensure invalid currency pair returns error message")
     public void ensureInvalidCurrencyPairReturnsErrorMessageTest(){
-        socketData.countDown = 2;
-        socketData.subscriptionMessage = PublicMessages.PUBLIC_SUB_BOOK_INVALID_CURRENCY;
+        socketData.setCountDown(2);
+        socketData.setSubscriptionMessage(PublicMessages.PUBLIC_SUB_BOOK_INVALID_CURRENCY);
         SocketData responseContext= WebSocketFactory.getInstance().OpenAndStreamWebSocketSubscription(socketData);
-        System.out.println("RESULT>>>" + responseContext.messagesList.get(socketData.countDown-1));
+        System.out.println("RESULT>>>" + responseContext.getMessagesList().get(socketData.getCountDown()-1));
         /*
             Add test logic
          */
